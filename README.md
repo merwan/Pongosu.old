@@ -6,7 +6,6 @@ My first game using Gosu library: Pong.
 TODO
 ----
 
-* Draw paddle
 * Move paddle
 * Draw ball
 * Move ball
