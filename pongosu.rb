@@ -23,6 +23,14 @@ class GameWindow < Gosu::Window
               @paddle.move_to(height - @paddle.height)
           end
       end
+
+      @ball.move
+      if @ball.x <= 0 or @ball.x >= width - @ball.height
+          @ball.bounce_x
+      end
+      if @ball.y <= 0 or @ball.y >= height - @ball.height
+          @ball.bounce_y
+      end
   end
   
   def draw
