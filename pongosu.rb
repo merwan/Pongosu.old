@@ -1,5 +1,6 @@
 require 'gosu'
 require_relative 'paddle'
+require_relative 'ball'
 
 class GameWindow < Gosu::Window
   def initialize
@@ -7,6 +8,7 @@ class GameWindow < Gosu::Window
     self.caption = "Pongosu"
 
     @paddle = Paddle.new(self)
+    @ball = Ball.new(self)
   end
   
   def update
@@ -25,6 +27,7 @@ class GameWindow < Gosu::Window
   
   def draw
       @paddle.draw
+      @ball.draw
   end
 end
 
