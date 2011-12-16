@@ -7,7 +7,8 @@ class GameWindow < Gosu::Window
     super 640, 480, false
     self.caption = "Pongosu"
 
-    @paddle = Paddle.new(self)
+    @paddle = Paddle.new(self, 10)
+    @paddle2 = Paddle.new(self, 620)
     @ball = Ball.new(self)
   end
   
@@ -23,6 +24,17 @@ class GameWindow < Gosu::Window
               @paddle.move_to(height - @paddle.height)
           end
       end
+      if button_down? Gosu::KbE then
+          @paddle2.move_up
+          if @paddle2.upper_bound < 0
+              @paddle2.move_to(0)
+          end
+      elsif button_down? Gosu::KbD then
+          @paddle2.move_down
+          if @paddle2.lower_bound > height
+              @paddle2.move_to(height - @paddle2.height)
+          end
+      end
 
       @ball.move
       if @ball.x <= 0 or @ball.x >= width - @ball.height
@@ -35,6 +47,7 @@ class GameWindow < Gosu::Window
   
   def draw
       @paddle.draw
+      @paddle2.draw
       @ball.draw
   end
 end

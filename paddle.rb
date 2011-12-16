@@ -1,10 +1,10 @@
 class Paddle
     attr_accessor :height
 
-    def initialize(window)
+    def initialize(window, initial_x)
         @height = 50
         @image = Gosu::Image.new(window, "images/paddle.png", true)
-        @x = 10
+        @x = initial_x
         @vel_y = 5
         @y = 0.0
     end
