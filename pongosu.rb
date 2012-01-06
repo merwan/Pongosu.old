@@ -4,7 +4,7 @@ require_relative 'ball'
 
 class GameWindow < Gosu::Window
   def initialize
-    super 640, 480, false
+    super 640, 480, false 
     self.caption = "Pongosu"
 
     @paddle = Paddle.new(self, 10)
@@ -13,6 +13,11 @@ class GameWindow < Gosu::Window
   end
   
   def update
+      get_user_input
+      update_world
+  end
+
+  def get_user_input
       if button_down? Gosu::KbUp or button_down? Gosu::GpUp then
           @paddle.move_up
           if @paddle.upper_bound < 0
@@ -35,7 +40,9 @@ class GameWindow < Gosu::Window
               @paddle2.move_to(height - @paddle2.height)
           end
       end
+  end
 
+  def update_world
       @ball.move
       if @ball.x <= 0 or @ball.x >= width - @ball.height
           @ball.bounce_x
