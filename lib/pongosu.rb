@@ -1,5 +1,5 @@
 require 'gosu'
-Dir['pongosu/**/*.rb'].ort.each { |lib| require lib }
+Dir['pongosu/**/*.rb'].sort.each { |lib| require_relative lib }
 
 class GameWindow < Gosu::Window
   def initialize
