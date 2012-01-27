@@ -1,6 +1,5 @@
 require 'gosu'
-require_relative 'paddle'
-require_relative 'ball'
+Dir['pongosu/**/*.rb'].ort.each { |lib| require lib }
 
 class GameWindow < Gosu::Window
   def initialize
