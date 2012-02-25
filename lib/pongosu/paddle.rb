@@ -17,6 +17,10 @@ class Paddle
         @y + @height
     end
 
+    def right_bound
+        @x + 5
+    end
+
     def move_up
         @y -= @vel_y
     end
@@ -31,5 +35,9 @@ class Paddle
 
     def move_to(position)
         @y = position
+    end
+
+    def collide?(ball)
+        ball.x <= right_bound
     end
 end

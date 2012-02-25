@@ -49,6 +49,9 @@ class GameWindow < Gosu::Window
       if @ball.y <= 0 or @ball.y >= height - @ball.height
           @ball.bounce_y
       end
+      if @paddle.collide?(@ball)
+          @ball.bounce_x
+      end
   end
   
   def draw
